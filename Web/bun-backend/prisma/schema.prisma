@@ -1,0 +1,60 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+// Need superuser ALTER USER [user] WITH SUPERUSER
+// npx prisma migrate dev --name init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider     = "postgresql"
+  url          = env("DATABASE_URL")
+  relationMode = "foreignKeys"
+}
+
+model User {
+  email     String    @unique
+  name      String
+  password  String
+  createdAt DateTime  @default(now())
+  role      String    @default("user")
+  project   Project[]
+}
+
+model Project {
+  id         String  @id @default(uuid())
+  name       String
+  datas      Data[]
+  sensor     Sensor? @relation(fields: [sensorName], references: [name])
+  sensorName String? @unique
+  device     Device  @relation(fields: [deviceName], references: [name])
+  deviceName String
+  User       User?   @relation(fields: [userEmail], references: [email])
+  userEmail  String?
+}
+
+model Data {
+  id        String   @id @default(uuid())
+  name      String
+  location  String
+  label     String
+  type      String
+  Project   Project? @relation(fields: [projectId], references: [id])
+  projectId String?
+}
+
+model Sensor {
+  name        String    @unique
+  // pin         Json
+  sampleSpeed Int
+  frequencies Int[]
+  Project     Project[]
+}
+
+model Device {
+  name        String    @unique
+  platformUrl String
+  config      Json
+  Project     Project[]
+}

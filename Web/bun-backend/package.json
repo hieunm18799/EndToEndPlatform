@@ -1,0 +1,27 @@
+{
+  "name": "bun-backend",
+  "version": "1.0.50",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "bun run --watch src/index.ts",
+    "start": "bun run ./src/index.ts"
+  },
+  "dependencies": {
+    "@prisma/client": "5.4.2",
+    "@types/cors": "^2.8.14",
+    "@types/express": "^4.17.19",
+    "@types/jsonwebtoken": "^9.0.4",
+    "@types/multer": "^1.4.9",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^1.4.5-lts.1",
+    "prisma": "^5.4.2",
+    "zip-dir": "^2.0.0"
+  },
+  "devDependencies": {
+    "bun-types": "latest"
+  },
+  "type": "module",
+  "module": "src/index.js"
+}
