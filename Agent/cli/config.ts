@@ -163,7 +163,7 @@ export class Config {
                         { name: 'edgeimpulse.test', value: 'edgeimpulse.test' },
                     ],
                     name: 'host',
-                    message: 'To which server do you want to connect? (you can override this by setting EI_HOST environmental variable)',
+                    message: 'To which server do you want to connect?',
                     pageSize: 20
                 }]);
                 config.host = hostRes.host;

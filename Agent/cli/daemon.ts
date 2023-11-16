@@ -42,7 +42,7 @@ let configFactory: Config;
 let serial: SerialConnector | undefined;
 
 const cliOptions = {
-    appName: 'Edge Impulse serial daemon',
+    appName: 'Agent serial daemon',
     apiKeyArgv: apiKeyArgv,
     cleanArgv: cleanArgv,
     devArgv: devArgv,

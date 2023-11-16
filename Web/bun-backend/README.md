@@ -1,15 +1,16 @@
-# Elysia with Bun runtime
+# Bun API Webserver
 
-## Getting Started
-To get started with this template, simply paste this command into your terminal:
-```bash
-bun create elysia ./elysia-example
+## Building
+1. Create a .env folder that contain HOST, DEBUG, WS_PORT, API_PORT, ROOT_FOLDER, DATABASE_URL so the server can have the information of the server's setting.
+2. Install the dependencies:
 ```
-
-## Development
-To start the development server run:
-```bash
-bun run dev
+    bun install
 ```
-
-Open http://localhost:3000/ with your browser to see the result.
+3. Create pisma's database:
+```
+    npx prisma migrate dev --name init
+```
+## Run
+```
+    bun start
+```
