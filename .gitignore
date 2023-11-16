@@ -92,6 +92,7 @@ Thumbs.db
 *.sql
 *.sqlite
 migrations/
+datas/
 
 # ignore compiled files
 *.com
